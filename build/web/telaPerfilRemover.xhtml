@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>FindJobs</title>
+    </h:head>
+    <h:body>
+        <p:growl id="growl" showDetail="true" sticky="true" /> 
+        <h:form>
+            <p:panel style="width:500px;height:400px;alignment-adjust: central"  header="Remover de Perfil" >
+                          <h:form>
+                            <h:outputText value="Código: "/><p:inputText value="#{managedBeanPerfil.perfil.codigoPerfil}"/>
+                            <p:commandButton ajax="false" value="Buscar" onclick="PF('res1').show()"/>
+                            <p:dialog header="" widgetVar="res1" resizable="false">
+                                <h:form>
+                                    <p:dataTable value="#{managedBeanPerfil.codigoPerfil}" var="c">                                        
+                                    <p:column headerText="Categoria">
+                                      <h:outputText value="#{c.categoria}"/>
+                                    </p:column>
+                                    <p:column headerText="Endereço">
+                                      <h:outputText value="#{c.horasTrabalho}"/>
+                                    </p:column>
+                                    <p:column headerText="Remuneração">
+                                      <h:outputText value="#{c.remuneracao}"/>
+                                    </p:column> 
+                                    <p:column headerText="ID">
+                                      <h:outputText value="#{c.codigo}"/>
+                                    </p:column>
+                                     <p:column headerText="Lista de Vagas">
+                                       <h:outputText value="#{c.vaga}"/>
+                                     </p:column>
+                             </p:dataTable>
+                                </h:form>
+                            </p:dialog>
+                        </h:form>  
+                   
+                <h:panelGrid columns="2">
+                    <h:outputText value="codigo: "/><p:inputText value="#{managedBeanPerfil.perfil.codigoPerfil}"/>
+                    <p:commandButton ajax="false" value="Remover" onclick="PF('dlg1')">
+                        <p:confirm header="Confirmação" message="Deseja remover essa perfil? #{managedBeanPerfil.codigoPerfil}?" icon="ui-icon-alert" />  
+                    </p:commandButton>
+                    <p:confirmDialog widgetVar="dlg1" global="true" showEffect="fade" hideEffect="explode">  
+                        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" action="#{managedBeanPerfil.removerPerfil()}"/>  
+                        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"action="#{ManagedBeanPerfil.removerPerfil()}"/>       
+                    </p:confirmDialog> 
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>FindJobs</title>
+
+    </h:head>
+    <h:body>
+        <p:growl id="growl" showDetail="true" sticky="true" /> 
+        <h:form>
+            <p:panel style="width:500px;height:400px;alignment-adjust: central"  header="Busca" >
+                <p:panelGrid columns="1">
+                    <h:form>
+                        <h:outputText value="Código: "/>
+                        <p:inputText value="#{managedBeanUsuario.usuario.codigoUsuario}"/>
+                        <p:commandButton value="Buscar" action="#{managedBeanUsuario.buscarUsuario()}"/>
+
+                        <p:messages showDetail="true"/>
+                    </h:form>  
+
+
+
+                </p:panelGrid>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
+
+

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>FindJobs</title>
+    </h:head>
+    <h:body>
+    <h1> Cadastro de usuarios</h1>  
+       
+     <h:form>
+      <p:panel style="width:500px;height:400px;alignment-adjust: central"  header="Cadastro de Usuarios">
+       <p:panelGrid columns="2">     
+            
+            <h:outputText value="Nome:"/>
+            <p:inputText required="true" requiredMessage="O campo nome não pode ser nulo" value="#{managedBeanUsuario.usuario.nomeUsuario}"/>
+           
+            <h:outputText value="CPF:"/>
+            <p:inputMask required="true" requiredMessage="O campo cpf não pode ser nulo" mask="999.999.999-99" value="#{managedBeanUsuario.usuario.cpf}"/>
+            
+            <h:outputText value="Endereço:"/>
+            <p:inputText value="#{managedBeanUsuario.usuario.enderecoUsuario}"/>
+           
+            <h:outputText value="Telefone:"/>
+            <p:inputMask required="true" requiredMessage="O campo Telefone não pode ser nulo" mask="(99) 9999-9999" value="#{managedBeanUsuario.usuario.telefoneUsuario}"/>
+           
+            <h:outputText value="Perfil:"/>
+            <p:inputText value="#{managedBeanUsuario.usuario.perfil}"/>
+            
+            <h:outputText value="Data de Nascimento: "/>
+            <p:calendar value="#{managedBeanUsuario.usuario.dataNascimento}" pattern="dd/MM/yyyy"/>
+           
+            <h:outputText value="Sexo:"/>
+            <p:inputText value="#{managedBeanUsuario.usuario.sexo}"/>
+           
+            <h:outputText value="Estado:"/>
+            <p:inputText value="#{managedBeanUsuario.usuario.estadoUsuario}"/>
+           
+            <h:outputText value="Cidade:"/>
+            <p:inputText value="#{managedBeanUsuario.usuario.cidadeUsuario}"/>
+
+	    <h:outputText value="Senha:"/>
+            <p:inputText value="#{managedBeanUsuario.usuario.senhaUsuario}"/>	
+            
+            
+            <h:commandButton value="Cadastrar" action="#{managedBeanUsuario.cadastrarUsuario()}"/>
+            <p:messages showDetail="true"/>
+          </p:panelGrid>
+       </p:panel>         
+     </h:form>
+    </h:body>
+</html>
+

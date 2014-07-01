@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Exibir Perfil</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panel header="Perfil">
+                <p:panelGrid columns="2">
+                    
+            <h:outputText value="Categoria:"/>
+            <p:inputText value="#{managedBeanPerfil.perfil.categoria}"/>
+                      
+            <h:outputText value="Horas de Trabalho:"/>
+            <p:inputText value="#{managedBeanPerfil.perfil.horasTrabalho}"/>
+            
+            <h:outputText value="Remuneração:"/>
+            <p:inputText value="#{managedBeanPerfil.perfil.remuneracao}"/>
+    
+                </p:panelGrid>
+                <p:messages showDetail="false"/>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
+

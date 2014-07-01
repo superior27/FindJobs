@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>FindJobs</title>
+    </h:head>
+    <h:body>
+    <h1> Cadastro de Perfil</h1>  
+       
+     <h:form>
+      <p:panel style="width:500px;height:400px;alignment-adjust: central"  header="Atualizar">
+       <p:panelGrid columns="2">     
+            <h:outputText value="Categoria:"/>
+           <p:selectOneMenu value="#{managedBeanPerfil.perfil.categoria}">
+              <f:selectItem itemLabel="Selecione um" itemValue="" />
+              <f:selectItems value="#{managedBeanPerfil.perfil.listaCategoria}" />
+            </p:selectOneMenu>
+                      
+            <h:outputText value="Horas de Trabalho:"/>
+            <p:inputText value="#{managedBeanPerfil.perfil.horasTrabalho}"/>
+            
+            <h:outputText value="Remuneração:"/>
+            <p:inputText value="#{managedBeanPerfil.perfil.remuneracao}"/>
+            
+            <h:commandButton value="Atualizar" action="#{managedBeanPerfil.atualizarPerfil()}"/>
+            <p:messages showDetail="true"/>
+          </p:panelGrid>
+       </p:panel>         
+     </h:form>
+    </h:body>
+</html>
+
